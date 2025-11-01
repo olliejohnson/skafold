@@ -8,16 +8,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import io.oliverj.skaffold.builtin.GamePage
 import io.oliverj.skaffold.builtin.HomePage
-import io.oliverj.skaffold.data.PageData
 import kotlinx.serialization.json.Json
 
 class Skafold {
     companion object {
         var currentPage: String = ""
 
-        var pageData: MutableMap<String, PageData> = mutableMapOf()
+        var pageData: MutableMap<String, MutableMap<String, String>> = mutableMapOf()
 
-        fun getData(): PageData? {
+        fun getData(): MutableMap<String, String>? {
             return pageData[currentPage]
         }
     }
@@ -34,14 +33,10 @@ class Skafold {
         return page
     }
 
-    infix fun Page.data(data: PageData) {
-        pageData[this.id] = data
-    }
-
     fun builtin(nav: NavController) {
-        "home" page HomePage(nav go "game") data PageData("home")
+        "home" page HomePage(nav go "game")
 
-        "game" page GamePage(nav go "auton", nav go "home") data PageData("game")
+        "game" page GamePage(nav go "auton", nav go "home")
     }
 
     fun saveData() {

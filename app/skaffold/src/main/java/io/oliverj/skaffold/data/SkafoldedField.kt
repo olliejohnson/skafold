@@ -5,24 +5,18 @@ import androidx.compose.runtime.DisallowComposableCalls
 import androidx.compose.runtime.RecomposeScope
 import androidx.compose.runtime.currentRecomposeScope
 import io.oliverj.skaffold.Skafold.Companion.getData
-import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty
-import kotlin.reflect.full.memberProperties
 
 class SkafoldedField<T>(id: String, val scope: RecomposeScope) {
 
     val id: String? = id as String?
 
     operator fun getValue(thisRef: Any?, property: KProperty<*>): T {
-        return getData()!!::class.memberProperties.find { it.name == id }!!.getter.call(getData()) as T
+        return getData()?.get(id) as T
     }
 
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: T?) {
-        val prop = getData()!!::class.memberProperties.find { it.name == id }
-
-        if (prop is KMutableProperty1<*, *>) {
-            (prop as KMutableProperty1<PageData, T>).setter.call(getData(), value)
-        }
+        getData()?.set(id!!, value as String)
 
         scope.invalidate()
     }
