@@ -8,15 +8,25 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import io.oliverj.skaffold.builtin.GamePage
 import io.oliverj.skaffold.builtin.HomePage
+import io.oliverj.skaffold.data.GameData
+import io.oliverj.skaffold.data.HomeData
+import io.oliverj.skaffold.data.PageData
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
+import kotlin.reflect.full.companionObject
+import kotlin.reflect.full.companionObjectInstance
+import kotlin.reflect.full.createInstance
+import kotlin.reflect.full.declaredMemberExtensionFunctions
+import kotlin.reflect.full.functions
+import kotlin.reflect.full.memberExtensionFunctions
 
 class Skafold {
     companion object {
         var currentPage: String = ""
 
-        var pageData: MutableMap<String, MutableMap<String, String>> = mutableMapOf()
+        var pageData: MutableMap<String, PageData> = mutableMapOf()
 
-        fun getData(): MutableMap<String, String>? {
+        fun getData(): PageData? {
             return pageData[currentPage]
         }
     }
@@ -33,14 +43,29 @@ class Skafold {
         return page
     }
 
-    fun builtin(nav: NavController) {
-        "home" page HomePage(nav go "game")
+    infix fun <T : PageData> Page.data(state: T) {
+        pageData[this.id] = state
+    }
 
-        "game" page GamePage(nav go "auton", nav go "home")
+    fun builtin(nav: NavController) {
+        "home" page HomePage(nav go "game") data HomeData()
+
+        "game" page GamePage(nav go "auton", nav go "home") data GameData()
     }
 
     fun saveData() {
-        val json = Json.encodeToString(pageData)
+        val elements = pageData.values.map { it ->
+            val pack = it::class.java.`package`!!.name + ".generated"
+            val classPath = pack + "." + it::class.simpleName + "Ext"
+
+            val cls = Companion::class.java.classLoader!!.loadClass(classPath).kotlin
+
+            val funcs = cls.companionObject?.functions
+            println(funcs?.map { it.name })
+            funcs?.find { it.name == "save" }?.call(cls.companionObjectInstance, it) as JsonElement
+        }
+        val format = Json { encodeDefaults = true }
+        val json = format.encodeToString(elements)
         println(json)
     }
 }

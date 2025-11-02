@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "SKAFOLD"
 include(":app")
 include(":app:skaffold")
+include(":app:skaffold:processor")

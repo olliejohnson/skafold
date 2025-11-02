@@ -1,4 +1,4 @@
-package io.oliverj.skafold
+package io.oliverj.skafold.pages
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
@@ -12,7 +12,7 @@ class AutonPage(onNext: () -> Unit = EMPTY_LAMBDA, onBack: () -> Unit = EMPTY_LA
     @Composable
     override fun Render() {
         var name: String by skafolded { "name" }
-        var points: Int by skafolded { "autonPoints" }
+        var points: Int by skafolded { "points" }
 
         Column {
             Text("$name page")

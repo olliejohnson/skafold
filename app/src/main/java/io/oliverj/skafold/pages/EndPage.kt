@@ -1,4 +1,4 @@
-package io.oliverj.skafold
+package io.oliverj.skafold.pages
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
