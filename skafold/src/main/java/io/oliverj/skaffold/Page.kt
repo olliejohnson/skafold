@@ -13,6 +13,14 @@ import androidx.compose.ui.Modifier
 
 val EMPTY_LAMBDA: () -> Unit = {}
 
+/**
+ * A page is a navigable panel of compose components. You register pages in the
+ * skafold lambda. All pages have some form of data attached to them.
+ *
+ * @see Skafold
+ * @see io.oliverj.skaffold.data.PageData
+ * @author Oliver Johnson
+ */
 abstract class Page(val next: () -> Unit = EMPTY_LAMBDA, var back: () -> Unit = EMPTY_LAMBDA) {
     var id: String = ""
 

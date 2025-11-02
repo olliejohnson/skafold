@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "io.oliverj.skaffold"
+    namespace = "io.oliverj.skafold"
     compileSdk {
         version = release(36)
     }
@@ -54,6 +54,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(project(":app:skaffold:processor"))
-    ksp(project(":app:skaffold:processor"))
+    implementation(project(":skafold:processor"))
+    ksp(project(":skafold:processor"))
 }

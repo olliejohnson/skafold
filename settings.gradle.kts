@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SKAFOLD"
+rootProject.name = "skafold"
 include(":app")
-include(":app:skaffold")
-include(":app:skaffold:processor")
+include(":skafold")
+include(":skafold:processor")

@@ -24,12 +24,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             SKAFOLDTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    skafold(modifier = Modifier.padding(innerPadding)) {
-                        builtin(it)
+                    skafold(applicationContext, modifier = Modifier.padding(innerPadding)) {
+                        builtin()
 
-                        "auton" page AutonPage(it go "teleop", it go "game") data AutonData()
-                        "teleop" page TeleopPage(it go "end", it go "auton") data TeleopData()
-                        "end" page EndPage(it go "home", it go "teleop") data EndData()
+                        "auton" page AutonPage(nav go "teleop", nav go "game") data AutonData()
+                        "teleop" page TeleopPage(nav go "end", nav go "auton") data TeleopData()
+                        "end" page EndPage(nav go "home", nav go "teleop") data EndData()
                     }
                 }
             }

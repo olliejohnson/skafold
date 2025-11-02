@@ -1,4 +1,4 @@
-package io.oliver.processor
+package io.oliverj.skafold.processor
 
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
@@ -8,8 +8,18 @@ import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.google.devtools.ksp.validate
 
+/**
+ * Used to generate serialization logic for user-generated data classes.
+ *
+ * @author Oliver Johnson
+ */
 class PageDataProcessor(private val codeGenerator: CodeGenerator) : SymbolProcessor {
 
+    /**
+     * Entrypoint into the ksp processor.
+     *
+     * @author Oliver Johnson
+     */
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val symbols = resolver.getSymbolsWithAnnotation(SerializableData::class.qualifiedName!!)
         symbols.forEach { symbol ->
@@ -18,6 +28,11 @@ class PageDataProcessor(private val codeGenerator: CodeGenerator) : SymbolProces
         return symbols.filterNot { it.validate() }.toList()
     }
 
+    /**
+     * Generates source code that is used to serialize data.
+     *
+     * @author Oliver Johnson
+     */
     private fun generateCode(symbol: KSClassDeclaration, resolver: Resolver) {
         val packageName = symbol.packageName.asString()
         val className = symbol.simpleName.asString()

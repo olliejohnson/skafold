@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.fir.resolve.transformers.body.resolve.approximateDeclarationType
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -9,13 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.skafold"
+    namespace = "io.oliverj.skafold.example"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.skafold"
+        applicationId = "io.oliverj.skafold.example"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -55,7 +53,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.navigation.compose)
-    implementation(project(":app:skaffold"))
+    implementation(project(":skafold"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -65,6 +63,6 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    implementation(project(":app:skaffold:processor"))
-    ksp(project(":app:skaffold:processor"))
+    implementation(project(":skafold:processor"))
+    ksp(project(":skafold:processor"))
 }

@@ -10,6 +10,15 @@ import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty
 import kotlin.reflect.full.memberProperties
 
+/**
+ * This is the implementation of a skafolded field. A skafolded field is a field that will allow you
+ * to access data from the page's data class as a variable.
+ *
+ * Example:
+ *  val name: String by skafolded { "name" }
+ *
+ * @author Oliver Johnson
+ */
 class SkafoldedField<T>(id: String, val scope: RecomposeScope) {
 
     val id: String? = id as String?
@@ -29,6 +38,11 @@ class SkafoldedField<T>(id: String, val scope: RecomposeScope) {
     }
 }
 
+/**
+ * This is the function used as the keyword for making a skafolded field.
+ *
+ * @author Oliver Johnson
+ */
 @Composable
 fun <T> skafolded(initialGetter: @DisallowComposableCalls () -> String): SkafoldedField<T> {
     val data = getData()
