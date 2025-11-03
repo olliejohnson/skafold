@@ -4,7 +4,12 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.0.21"
     id("com.google.devtools.ksp") version "2.0.21-1.0.26"
+    id("maven-publish")
+    id("signing")
 }
+
+group = "io.oliverj.skafold"
+version = "1.0.0"
 
 android {
     namespace = "io.oliverj.skafold"
@@ -56,4 +61,50 @@ dependencies {
 
     implementation(project(":processor"))
     ksp(project(":processor"))
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = "skafold"
+
+            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+
+            pom {
+                name = "Skafold Framework"
+                description = "A android framework for creating multipage scouting apps"
+                url = "https://github.com/olliejohnson/skafold.git"
+
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "https://opensource.org/license/mit"
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = "olliejohnson"
+                        name = "Oliver Johnson"
+                        email = "oliver@oliverj.io"
+                    }
+                }
+
+                scm {
+                    connection = "scm:git:git://github.com/olliejohnson/skafold.git"
+                    developerConnection = "scm:git:ssh://github.com:olliejohnson/skafold.git"
+                    url = "https://github.com/olliejohnson/skafold"
+                }
+            }
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+signing {
+    useGpgCmd()
+    sign(publishing.publications["maven"])
 }

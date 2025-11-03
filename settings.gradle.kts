@@ -20,6 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "skafold"
-include(":examples:app")
+include(":examples:frc2024-reefscape")
 include(":skafold")
 include(":processor")
