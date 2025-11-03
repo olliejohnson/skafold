@@ -20,6 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "skafold"
-include(":app")
+include(":examples:app")
 include(":skafold")
-include(":skafold:processor")
+include(":processor")

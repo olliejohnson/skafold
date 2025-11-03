@@ -1,6 +1,6 @@
 package io.oliverj.skaffold.data
 
-import io.oliver.processor.SerializableData
+import io.oliverj.skafold.processor.SerializableData
 import kotlinx.serialization.Serializable
 
 /**

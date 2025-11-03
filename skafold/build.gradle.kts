@@ -54,6 +54,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(project(":skafold:processor"))
-    ksp(project(":skafold:processor"))
+    implementation(project(":processor"))
+    ksp(project(":processor"))
 }
