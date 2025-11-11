@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "io.oliverj.skafold"
-version = "1.0.0"
+version = "1.0.2"
 
 android {
     namespace = "io.oliverj.skafold"
@@ -53,8 +53,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+    implementation(libs.kotlin.reflect)
+    implementation(libs.kotlinx.serialization.json)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -63,12 +63,18 @@ dependencies {
     ksp(project(":processor"))
 }
 
+tasks.register<Jar>("sourcesJar") {
+    archiveClassifier = "sources"
+    from(android.sourceSets["main"].java.srcDirs)
+}
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = "skafold"
 
             artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+            artifact(tasks.findByName("sourcesJar"))
 
             pom {
                 name = "Skafold Framework"
