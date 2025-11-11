@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: Skafold Framework
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Oliver
+    family-names: Johnson
+    email: oliver@oliverj.io
+    orcid: 'https://orcid.org/0009-0009-0310-3690'
+repository-code: 'https://github.com/olliejohnson/skafold.git'
+repository-artifact: >-
+  https://central.sonatype.com/artifact/io.oliverj.skafold/skafold
+license: MIT
+version: 1.0.2
+date-released: '2025-11-10'
