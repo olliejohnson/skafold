@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import io.oliverj.skaffold.skafold
 import io.oliverj.skafold.data.AutonData
 import io.oliverj.skafold.data.EndData
 import io.oliverj.skafold.data.TeleopData

@@ -1,4 +1,4 @@
-package io.oliverj.skaffold
+package io.oliverj.skafold
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -7,11 +7,11 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import io.oliverj.skaffold.builtin.GamePage
-import io.oliverj.skaffold.builtin.HomePage
-import io.oliverj.skaffold.data.GameData
-import io.oliverj.skaffold.data.HomeData
-import io.oliverj.skaffold.data.PageData
+import io.oliverj.skafold.builtin.GamePage
+import io.oliverj.skafold.builtin.HomePage
+import io.oliverj.skafold.data.GameData
+import io.oliverj.skafold.data.HomeData
+import io.oliverj.skafold.data.PageData
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import java.io.File

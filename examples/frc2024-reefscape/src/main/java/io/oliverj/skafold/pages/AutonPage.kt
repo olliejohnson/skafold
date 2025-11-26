@@ -4,9 +4,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import io.oliverj.skaffold.EMPTY_LAMBDA
-import io.oliverj.skaffold.Page
-import io.oliverj.skaffold.data.skafolded
+import io.oliverj.skafold.EMPTY_LAMBDA
+import io.oliverj.skafold.Page
+import io.oliverj.skafold.data.skafolded
 
 class AutonPage(onNext: () -> Unit = EMPTY_LAMBDA, onBack: () -> Unit = EMPTY_LAMBDA) : Page(onNext, onBack) {
     @Composable

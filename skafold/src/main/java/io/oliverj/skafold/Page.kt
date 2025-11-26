@@ -1,4 +1,4 @@
-package io.oliverj.skaffold
+package io.oliverj.skafold
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,7 +18,7 @@ val EMPTY_LAMBDA: () -> Unit = {}
  * skafold lambda. All pages have some form of data attached to them.
  *
  * @see Skafold
- * @see io.oliverj.skaffold.data.PageData
+ * @see io.oliverj.skafold.data.PageData
  * @author Oliver Johnson
  */
 abstract class Page(val next: () -> Unit = EMPTY_LAMBDA, var back: () -> Unit = EMPTY_LAMBDA) {

@@ -1,4 +1,4 @@
-package io.oliverj.skaffold.component
+package io.oliverj.skafold.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

@@ -1,4 +1,4 @@
-package io.oliverj.skaffold
+package io.oliverj.skafold
 
 import org.junit.Test
 

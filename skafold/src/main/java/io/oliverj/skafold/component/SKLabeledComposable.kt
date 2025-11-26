@@ -1,4 +1,4 @@
-package io.oliverj.skaffold.component
+package io.oliverj.skafold.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "io.oliverj.skafold"
-version = "1.0.2"
+version = "2.0.0"
 
 android {
     namespace = "io.oliverj.skafold"

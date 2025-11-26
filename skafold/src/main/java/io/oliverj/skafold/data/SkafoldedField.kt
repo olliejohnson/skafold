@@ -1,11 +1,10 @@
-package io.oliverj.skaffold.data
+package io.oliverj.skafold.data
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisallowComposableCalls
 import androidx.compose.runtime.RecomposeScope
 import androidx.compose.runtime.currentRecomposeScope
-import io.oliverj.skaffold.Skafold.Companion.getData
-import kotlin.reflect.KMutableProperty
+import io.oliverj.skafold.Skafold.Companion.getData
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty
 import kotlin.reflect.full.memberProperties

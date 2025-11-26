@@ -1,4 +1,4 @@
-package io.oliverj.skaffold.component
+package io.oliverj.skafold.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,7 +12,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import io.oliverj.skaffold.data.skafolded
+import io.oliverj.skafold.data.skafolded
 
 @Composable
 fun <T> SKChoice(

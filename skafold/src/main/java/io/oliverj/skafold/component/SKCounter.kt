@@ -1,4 +1,4 @@
-package io.oliverj.skaffold.component
+package io.oliverj.skafold.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.oliverj.skaffold.data.skafolded
+import io.oliverj.skafold.data.skafolded
 import kotlin.math.max
 import kotlin.math.min
 

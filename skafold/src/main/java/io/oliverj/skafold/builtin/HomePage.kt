@@ -1,11 +1,11 @@
-package io.oliverj.skaffold.builtin
+package io.oliverj.skafold.builtin
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import io.oliverj.skaffold.EMPTY_LAMBDA
-import io.oliverj.skaffold.Page
-import io.oliverj.skaffold.data.skafolded
+import io.oliverj.skafold.EMPTY_LAMBDA
+import io.oliverj.skafold.Page
+import io.oliverj.skafold.data.skafolded
 
 /**
  * This is the builtin home page. This is the first page you see when you start the app. It links to the

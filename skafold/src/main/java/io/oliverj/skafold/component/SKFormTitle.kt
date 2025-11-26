@@ -1,4 +1,4 @@
-package io.oliverj.skaffold.component
+package io.oliverj.skafold.component
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
