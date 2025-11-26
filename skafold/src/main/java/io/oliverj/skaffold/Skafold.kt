@@ -106,7 +106,7 @@ class Skafold(val context: Context, val nav: NavController) {
             val cls = Companion::class.java.classLoader!!.loadClass(classPath).kotlin
 
             val funcs = cls.companionObject?.functions
-            println(funcs?.map { it.name })
+
             val element = funcs?.find { it.name == "save" }?.call(cls.companionObjectInstance, it) as JsonElement
 
             val fields = (it::class as KClass<Any>).memberProperties

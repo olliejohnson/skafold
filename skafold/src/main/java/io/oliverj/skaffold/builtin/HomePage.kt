@@ -19,7 +19,7 @@ class HomePage(onNext: () -> Unit = EMPTY_LAMBDA, onBack: () -> Unit = EMPTY_LAM
         val name: String by skafolded { "name" }
 
         Column {
-            Text("Hello from $name")
+            Text("DERP!!! Hello from $name")
         }
     }
 }
