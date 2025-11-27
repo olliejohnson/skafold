@@ -11,4 +11,8 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 @SerializableData
-class GameData : PageData("game")
+class GameData(
+    var scoutName: String = "",
+    var teamNumber: String = "2609",
+    var matchNumber: String = ""
+) : PageData("game")
